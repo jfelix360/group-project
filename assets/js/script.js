@@ -12,6 +12,8 @@ var getStockData = function (stockName) {
     axios.request(options).then(function (response) {
         // Stock Symbol Data
         var stockSymbol = response.data.ResultSet.Result[0].symbol
+        // Set displayStockName as the company's registered name
+        var stockName = response.data.ResultSet.Result[0].name
         // Second API Options
         var options = {
             method: 'GET',
@@ -20,6 +22,7 @@ var getStockData = function (stockName) {
                 'x-api-key': 'oRR9sOAR2w9p3NQiFl5fS5A5jwP2FS0k9A033nLd'
             }
         };
+
         // Second API Request/Response
         axios.request(options).then(function (response) {
             // Data Startpoint 
